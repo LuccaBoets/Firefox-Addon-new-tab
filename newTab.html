@@ -16,63 +16,60 @@
       background-image: url('https://w.wallhaven.cc/full/39/wallhaven-399v8v.jpg'); 
       height: 100%; 
       width: 100%;
+      font-family: 'Roboto', sans-serif;
+      color: #996633 !important;
     }
 
-    h1, p{
-      color: white;
+    a {
+      color: #996633 !important;
+      text-decoration: none;
     }
 
-    .right {
-      text-align: left;
+    p {
+      font-size: 20px;
+    }
+
+    .toolbar button, .toolbar p {
       float: right;
     }
-  /* shape-outside: circle();  */
-    .left {
-      text-align: right;
-      float: left;
-    } 
-
-    .circle {
-      width: 460px;
-      height: 600px;
-      shape-outside: ellipse(closest-side 362px at 465px 301px);
-      float: left;
-       /* background-color: white;  */
-    }
-
-    .center {
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
   </style>
-  <script type="module">
-
-  </script>
 
 </head>
   <body>
     <!-- https://material.io/develop/web/components/menus   https://material.io/develop/web/components/buttons/icon-buttons https://wallhaven.cc/w/399v8v -->
-    <div style="float: right; margin: 15px; color: white;" class="toolbar mdc-menu-surface--anchor">
+    <div style="float: right; margin: 15px;" class="toolbar mdc-menu-surface--anchor">
 
-      <button class="mdc-icon-button material-icons" style="color: ;" onclick="menuClick()">menu</button>
+      <button class="mdc-icon-button material-icons" style="color: #996633; font-size: 2em" onclick="menuClick()">menu</button>
+      <p style="margin-top: 15px;margin-right: 20px;"><a href="https://mail.google.com/mail/u/0/#inbox">Gmail</a></p>
+      <p style="margin-top: 15px;margin-right: 20px;"><a href="https://learning.ap.be/my/">Digitap</a></p>
+      <p style="margin-top: 15px;margin-right: 20px;"><a href="https://www.youtube.com">Youtube</a></p>
       
-
-      <div class="mdc-menu mdc-menu-surface" style="margin-top: 48px;">
-        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+      <div class="mdc-menu mdc-menu-surface" style="margin-top: 48px;background-color: #222222;">
+        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1" style="color: #C8874A;">
           <li class="mdc-list-item" role="menuitem">
             <span class="mdc-list-item__ripple"></span>
-            <span class="mdc-list-item__text">A Menu Item</span>
+            <span class="mdc-list-item__text"><a href="https://drive.google.com/drive/my-drive">Drive</a></span>
           </li>
           <li class="mdc-list-item" role="menuitem">
             <span class="mdc-list-item__ripple"></span>
-            <span class="mdc-list-item__text">Another Menu Item</span>
+            <span class="mdc-list-item__text"><a href="https://www.animefever.tv/">AnimeFever</a></span>
+          </li>
+          <li class="mdc-list-item" role="menuitem">
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__text"><a href="https://mangakakalot.com/">Mangakakalot</a></span>
+          </li>
+          <li class="mdc-list-item" role="menuitem">
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__text"><a href="https://www.webtoons.com/en/">Webtoons</a></span>
+          </li>
+          <li class="mdc-list-item" role="menuitem">
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__text"><a href="https://www.4chan.org/">4chan</a></span>
           </li>
         </ul>
-  </div>
+      </div>
+        
+    </div>
 
   <script>
   function menuClick(){
