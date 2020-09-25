@@ -18,7 +18,7 @@
     "newtab": "newTab.html"
   },
     
-  "content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://unpkg.com; object-src 'self'",
 
   "background": {
     "scripts": ["background.js"]
@@ -29,4 +29,4 @@
     "48": "logo48.png",
     "128": "logo128.png"
   }
-}
+}   
