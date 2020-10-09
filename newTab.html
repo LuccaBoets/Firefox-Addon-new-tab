@@ -8,7 +8,15 @@
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="bootstrap.min.js"></script>
+
   <style>
+
+    @font-face {
+      font-family: BebasNeue;
+      src: url(BebasNeue-Regular.woff);
+    }
 
     body {
       margin: 0px;
@@ -16,9 +24,11 @@
       background-image: url('https://w.wallhaven.cc/full/39/wallhaven-399v8v.jpg'); 
       height: 100%; 
       width: 100%;
-      font-family: 'Roboto', sans-serif;
+      /* font-family: 'Roboto', sans-serif; */
       color: #996633 !important;
+      font-family: BebasNeue;
     }
+
 
     a {
       color: #996633 !important;
@@ -26,7 +36,7 @@
     }
 
     p {
-      font-size: 20px;
+      font-size: 24px;
     }
 
     .customMenu {
@@ -36,46 +46,86 @@
     .customMenu button, .customMenu p {
       float: right;
     }
+    .mdc-list-item--activated i {
+      color: white !important;
+
+    }
+    .mdc-list-item--activated{
+      color: white !important;
+      background-color: #996633;
+    }
   </style>
 
 </head>
   <body>
     <!-- https://material.io/develop/web/components/menus   https://material.io/develop/web/components/buttons/icon-buttons https://wallhaven.cc/w/399v8v -->
-    <div style="float: right; margin: 15px;" class="customMenu">
-      <div id="toolbar" class="toolbar mdc-menu-surface--anchor" style="float: right;">
-        <button class="mdc-icon-button material-icons" style="color: #996633; font-size: 2em" id="menuClickBtn">menu</button>
 
-        <div class="mdc-menu mdc-menu-surface" style="margin-top: 48px;background-color: #141414;">
-          <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1" style="color: #C8874A;">
-            <li class="mdc-list-item" role="menuitem">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text"><a href="https://drive.google.com/drive/my-drive">Drive</a></span>
-            </li>
-            <li class="mdc-list-item" role="menuitem">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text"><a href="https://www.animefever.tv/">AnimeFever</a></span>
-            </li>
-            <li class="mdc-list-item" role="menuitem">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text"><a href="https://mangakakalot.com/">Mangakakalot</a></span>
-            </li>
-            <li class="mdc-list-item" role="menuitem">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text"><a href="https://www.webtoons.com/en/">Webtoons</a></span>
-            </li>
-            <li class="mdc-list-item" role="menuitem">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text"><a href="https://www.4chan.org/">4chan</a></span>
-            </li>
-          </ul>
-        </div>
+    <!-- Navigation drawer -->
+    <aside class="mdc-drawer mdc-drawer--modal" style="background-color: #141414;width: 57px; overflow-x: hidden;">
+      <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+          <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+          </a>
+          <a class="mdc-list-item" href="#">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+          </a>
+          <a class="mdc-list-item" href="#">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+          </a>
+        </nav>
       </div>
+    </aside>
+  
+    <div class="mdc-drawer-scrim"></div>
+    <div id="goldSkull" >
+
+      <button class="mdc-icon-button material-icons" style="color: #996633; font-size: 2em" id="drawerClickBtn">menu</button>
+
+      <!-- Menu -->
+      <div style="float: right; margin: 15px;" class="customMenu">
+        <div id="toolbar" class="toolbar mdc-menu-surface--anchor" style="float: right;">
+          <button class="mdc-icon-button material-icons" style="color: #996633; font-size: 2em" id="menuClickBtn">menu</button>
+
+          <div class="mdc-menu mdc-menu-surface" style="margin-top: 48px;background-color: #141414;">
+            <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1" style="color: #C8874A;">
+              <li class="mdc-list-item" role="menuitem">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text"><a href="https://drive.google.com/drive/my-drive">Drive</a></span>
+              </li>
+              <li class="mdc-list-item" role="menuitem">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text"><a href="https://www.animefever.tv/">AnimeFever</a></span>
+              </li>
+              <li class="mdc-list-item" role="menuitem">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text"><a href="https://mangakakalot.com/">Mangakakalot</a></span>
+              </li>
+              <li class="mdc-list-item" role="menuitem">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text"><a href="https://www.webtoons.com/en/">Webtoons</a></span>
+              </li>
+              <li class="mdc-list-item" role="menuitem">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text"><a href="https://www.4chan.org/">4chan</a></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <p style="margin-top: 15px;margin-right: 20px;"><a href="https://mail.google.com/mail/u/0/#inbox">Gmail</a></p>
+        <p style="margin-top: 15px;margin-right: 20px;"><a href="https://learning.ap.be/my/">Digitap</a></p>
+        <p style="margin-top: 15px;margin-right: 20px;"><a href="https://www.youtube.com">Youtube</a></p>
+                
+      </div>
+
+
       
-      <p style="margin-top: 15px;margin-right: 20px;"><a href="https://mail.google.com/mail/u/0/#inbox">Gmail</a></p>
-      <p style="margin-top: 15px;margin-right: 20px;"><a href="https://learning.ap.be/my/">Digitap</a></p>
-      <p style="margin-top: 15px;margin-right: 20px;"><a href="https://www.youtube.com">Youtube</a></p>
-              
     </div>
+
 
     <script src="script.js"></script>
   </body>
