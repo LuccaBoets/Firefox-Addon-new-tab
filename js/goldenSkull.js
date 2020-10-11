@@ -1,3 +1,9 @@
+console.log("GoldenSkull")
+
+function speak(){
+    console.log("GoldenSkull")
+}
+
 document.getElementById("drawerClickBtn").addEventListener('click', drawerClick);
 
 const drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer--modal'));
