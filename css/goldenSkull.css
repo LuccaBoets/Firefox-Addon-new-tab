@@ -31,7 +31,8 @@
   .customMenu button, .customMenu p {
     float: right;
   }
-  .mdc-list-item--activated i {
+  
+  /* .mdc-list-item--activated i {
     color: white !important;
 
   }
@@ -39,3 +40,14 @@
     color: white !important;
     background-color: #996633;
   }
+
+  .mdc-list-item:hover, .mdc-list-item--activated:hover {
+    background-color: yellow;
+
+  }
+
+  .icons:hover, .icons:active, .icons  {
+    color: white !important;
+    background-color: red;
+  }
+ */

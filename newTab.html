@@ -11,32 +11,27 @@
   <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
   <script src="bootstrap/bootstrap.min.js"></script>
 
+  <link href="icons/all.min.css" rel="stylesheet">
+  <script defer src="icons/all.min.js"></script>
+
 </head>
   <body>
     <!-- https://material.io/develop/web/components/menus   https://material.io/develop/web/components/buttons/icon-buttons https://wallhaven.cc/w/399v8v -->
 
     <!-- Navigation drawer -->
-    <aside class="mdc-drawer mdc-drawer--modal" style="background-color: #141414;width: 57px; overflow-x: hidden;">
+     <aside class="mdc-drawer mdc-drawer--modal" style="background-color: #141414;width: 57px; overflow-x: hidden;">
       <div class="mdc-drawer__content">
         <nav class="mdc-list" id="customNav">
-          <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0">
+          <!-- <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0" style="background: white;">
             <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-          </a>
-          <a class="mdc-list-item" href="#">
-            <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-          </a>
-          <a class="mdc-list-item" href="#">
-            <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-          </a>
+            <i class="material-icons mdc-list-item__graphic"></i>
+          </a> -->
         </nav>
       </div>
     </aside>
   
     <div class="mdc-drawer-scrim"></div>
-    <div id="goldSkull">
+    <div id="goldenSkull">
       <button class="mdc-icon-button material-icons" style="color: #996633; font-size: 2em" id="drawerClickBtn">menu</button>
 
       <!-- Menu -->
@@ -75,10 +70,14 @@
         <p style="margin-top: 15px;margin-right: 20px;"><a href="https://www.youtube.com">Youtube</a></p>
                 
       </div>
-      <script onload="speak()" src="js/goldenSkull.js">        speak();        </script>
-
     </div>
+
+    <div id="brushColorize"></div>
+
     <div id="scriptLoader"></div>
+
+    <script src="js/goldenSkull.js"></script>
+    <script src="js/brushColorize.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html> 
