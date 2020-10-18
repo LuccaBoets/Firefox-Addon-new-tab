@@ -7,46 +7,78 @@ class Theme {
         this.displayName = displayName;
         this.initFunction = initFunction;
         this.icon = icon;
+        this.JSLoaded = false;
     }
 
     init(){
+
         console.log("init")
         document.getElementById("scriptLoader").innerHTML = '<link rel="stylesheet" href="css/' + this.name + '.css">';
 
         listOfThemes.forEach(theme => { document.getElementById(theme.name).style.display = "none";});
         document.getElementById(this.name).style.display = "block";
+        if(!this.JSLoaded){
 
-        this.initFunction();
+            console.log("loading js")
+            this.initFunction();
+            this.JSLoaded = true;
+        }
+
+        console.log("test  chrome.storage.local");
+        chrome.storage.local.set({currentTheme: this.name}, function() {
+            console.log('Value is set to ');
+            
+        });
     }
 }
 
-
-
-var currentTheme = "brushColorize";
-
 let listOfThemes = [new Theme("goldenSkull","Golden Skull",initGoldenSkull, "fa-skull"),new Theme("brushColorize", "Brush Colorize", initBrushColorize, "fa-brush")];
+var currentTheme = "goldenSkull";
 var navBar = document.getElementById('customNav');
-console.log(navBar)
 
-var count = 0;
-listOfThemes.forEach(theme => {
+if(!(typeof chrome === 'undefined')){
+   chrome.storage.local.get(['currentTheme'], function(result) {
+     if(!(typeof result.currentTheme === 'undefined')){
+        console.log('chrome.storage.local["currentTheme"]: ' + result.currentTheme);
 
-    navBar.innerHTML += `<a class="mdc-list-item" onclick="listOfThemes[`+count+`].init()" id="`+listOfThemes[count].name+`NavBar">
-        <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">
-                <i class="fas `+theme.icon+` icons"></i>
-            </i>
-        </a>`;
-    
-    if(theme.name == currentTheme){
-        theme.init();
-        //document.getElementById(theme.name).style.visibility = "visible";
-    }// } else {
-    //     document.getElementById(theme.name).style.visibility = "hidden";
-    // }
+        currentTheme= result.currentTheme;
+     } else {
+         console.log("result.currentTheme === 'undefined'");
+     }
+     initTheme();
+   });
+} else {
+    initTheme();
+}
 
-    count++;
-});
+function initTheme() {
+
+    console.log("initMain");
+
+    var count = 0;
+    listOfThemes.forEach(theme => {
+        console.log("listOfThemes.forEach");
+
+        navBar.innerHTML += `<a class="mdc-list-item" id="`+listOfThemes[count].name+`NavBar">
+            <span class="mdc-list-item__ripple"></span>
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">
+                    <i class="fas `+theme.icon+` icons"></i>
+                </i>
+            </a>`;
+        
+        if(theme.name == currentTheme){
+            console.log("init theme");
+            theme.init();
+        }
+
+        count++;
+    });
+
+    for (let i = 0; i < listOfThemes.length; i++) {
+        document.getElementById(listOfThemes[i].name + "NavBar").addEventListener('click', function( ) {listOfThemes[i].init()});
+    }
+}
+
 
 
 const listEl = document.querySelector('.mdc-drawer .mdc-list');
@@ -64,7 +96,3 @@ listEl.addEventListener('click', (event) => {
     drawer.open = false;
     
 });
-
-// document.body.addEventListener('MDCDrawer:closed', () => {
-//     mainContentEl.querySelector('input, button').focus();
-// });

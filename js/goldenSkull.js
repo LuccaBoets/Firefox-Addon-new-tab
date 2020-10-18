@@ -3,7 +3,7 @@ function initGoldenSkull(){
 
     document.getElementById("drawerClickBtn").addEventListener('click', drawerClick);
     document.getElementById("goldenSkullNavBar").tabIndex = "0";
-    document.getElementById("goldenSkullNavBar").aria.current = "page";
+    document.getElementById("goldenSkullNavBar").getAttributeNames.current = "page";
 
     // const drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer--modal'));
     // drawer.wrapFocus = true;

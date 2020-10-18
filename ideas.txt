@@ -1,0 +1,24 @@
+P --> progress
+S --> stop
+D --> done
+
+Main
+ D-remember page (Chrome.Storage, cookies)
+ D-don't load same page 2 times
+
+GoldenSkull
+ -link enchantsment
+ -more info (cpu?, weather api, ...)
+ D-aria.current = "page"; error problem
+
+Brush
+ -brush size
+ -color
+ -brush shapes
+ -links?
+
+Animated Background
+
+Dynamic Theme from custom wallpaper (hard) https://stackoverflow.com/questions/1106190/algorithm-challenge-generate-color-scheme-from-an-image
+
+Dynamic Background (weather)

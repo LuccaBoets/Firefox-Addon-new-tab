@@ -11,6 +11,7 @@ var color = colorPalettes[0];
 var brushCanvas = document.getElementById('brushColorizeCanvas');
 var brushCtx = brushCanvas.getContext('2d');
 
+
 function initBrushColorize(){
   console.log("BrushColorize")
 
@@ -21,7 +22,6 @@ function initBrushColorize(){
   var x = 0;
   var y = 0;
 
-  var colorIndex = 0;
   var count = 0;
   var mousedownBrushBool = false;
 
@@ -32,15 +32,14 @@ function initBrushColorize(){
   brushCanvas.addEventListener("mousedown", mousedownBrush);
   brushCanvas.addEventListener("mouseup", mouseupBrush);
 
-
-  chooseColor(0);
+  chooseColor(2);
 
   //console.log(colorPalettes);
   document.getElementById("colorPaletteId").innerHTML= "";
   colorPalettes.forEach(colorPalette => {
     document.getElementById("colorPaletteId").innerHTML += `<div class="colorBox">
       <div class="mdc-radio">
-        <input class="mdc-radio__native-control" type="radio" id="colorPalette-`+count+`" onclick="chooseColor(`+count+`)" name="radios" primary="black">
+        <input class="mdc-radio__native-control" type="radio" id="colorPalette-`+count+`" name="radios" primary="black">
         <div class="mdc-radio__background">
           <div class="mdc-radio__outer-circle"></div>
           <div class="mdc-radio__inner-circle"></div>
@@ -55,12 +54,13 @@ function initBrushColorize(){
         <div class="colorPaletteComponent" style="background-color: `+colorPalette[4]+`;border-top-right-radius: 14px;border-bottom-right-radius: 14px;"></div>
       </label>
       </div>`;
+    
     count++;
   });
 
-
-
-
+  for (let i = 0; i < colorPalettes.length; i++) {
+    document.getElementById("colorPalette-"+i).addEventListener('click', function() { chooseColor(i); } ); // chooseColor(`+count+`)
+  }
 
   document.onmousemove = handleMouseMove;
   function handleMouseMove(event) {
@@ -112,9 +112,9 @@ function initBrushColorize(){
   }
 }
 
-function chooseColor(count){
-  console.log("test")
-  color = colorPalettes[count];
+function chooseColor(index){
+  console.log("test " + index)
+  color = colorPalettes[index];
   updateColor();
   brushCtx.clearRect(0, 0, brushCanvas.width, brushCanvas.height);
 }
