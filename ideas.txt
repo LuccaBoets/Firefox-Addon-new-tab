@@ -22,3 +22,8 @@ Animated Background
 Dynamic Theme from custom wallpaper (hard) https://stackoverflow.com/questions/1106190/algorithm-challenge-generate-color-scheme-from-an-image
 
 Dynamic Background (weather)
+
+Kawaii
+
+CMD
+
