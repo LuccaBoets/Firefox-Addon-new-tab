@@ -1,29 +1,33 @@
 P --> progress
 S --> stop
 D --> done
+? --> idk
 
 Main
  D-remember page (Chrome.Storage, cookies)
  D-don't load same page 2 times
+ -Analysis stats
+ -Dynamic Links
 
 GoldenSkull
- -link enchantsment
- -more info (cpu?, weather api, ...)
+ D-link enchantsment
  D-aria.current = "page"; error problem
+ ?-more info (cpu?, weather api, ...)
 
 Brush
- -brush size
- -color
+ P-brush size
+ ?-color
  -brush shapes
- -links?
+ ?-links
 
 Animated Background
 
 Dynamic Theme from custom wallpaper (hard) https://stackoverflow.com/questions/1106190/algorithm-challenge-generate-color-scheme-from-an-image
 
-Dynamic Background (weather)
+Dynamic Background (weather, Time)
 
 Kawaii
 
 CMD
 
+Music player

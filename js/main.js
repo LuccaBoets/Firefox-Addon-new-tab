@@ -25,16 +25,20 @@ class Theme {
         }
 
         console.log("test  chrome.storage.local");
-        chrome.storage.local.set({currentTheme: this.name}, function() {
-            console.log('Value is set to ');
-            
-        });
+        if(!(typeof chrome === 'undefined')){
+            chrome.storage.local.set({currentTheme: this.name}, function() {
+                console.log('Value is set to ');
+                
+            });
+        }
     }
 }
 
 let listOfThemes = [new Theme("goldenSkull","Golden Skull",initGoldenSkull, "fa-skull"),new Theme("brushColorize", "Brush Colorize", initBrushColorize, "fa-brush")];
-var currentTheme = "goldenSkull";
+var currentTheme = "brushColorize";
 var navBar = document.getElementById('customNav');
+
+console.log(typeof chrome + " " + !(typeof chrome === 'undefined'));
 
 if(!(typeof chrome === 'undefined')){
    chrome.storage.local.get(['currentTheme'], function(result) {

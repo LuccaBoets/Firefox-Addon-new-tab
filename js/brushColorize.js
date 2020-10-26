@@ -11,7 +11,6 @@ var color = colorPalettes[0];
 var brushCanvas = document.getElementById('brushColorizeCanvas');
 var brushCtx = brushCanvas.getContext('2d');
 
-
 function initBrushColorize(){
   console.log("BrushColorize")
 
@@ -32,7 +31,7 @@ function initBrushColorize(){
   brushCanvas.addEventListener("mousedown", mousedownBrush);
   brushCanvas.addEventListener("mouseup", mouseupBrush);
 
-  chooseColor(2);
+  chooseColor(0);
 
   //console.log(colorPalettes);
   document.getElementById("colorPaletteId").innerHTML= "";
@@ -61,6 +60,16 @@ function initBrushColorize(){
   for (let i = 0; i < colorPalettes.length; i++) {
     document.getElementById("colorPalette-"+i).addEventListener('click', function() { chooseColor(i); } ); // chooseColor(`+count+`)
   }
+  
+
+  const sliderBrush = new mdc.slider.MDCSlider(document.querySelector('.mdc-slider'));
+  //sliderBrush.listen('MDCSlider:change', () => console.log(`Value changed to ${sliderBrush.value}`));
+
+  var randomBrushSize = false;
+  sliderBrush.disabled = true;
+  document.getElementById("BrushSizeRandom").addEventListener('click',  function() { randomBrushSize = true; sliderBrush.disabled = true; });
+  document.getElementById("BrushSizeSet").addEventListener('click',  function() { randomBrushSize = false; sliderBrush.disabled = false;});
+
 
   document.onmousemove = handleMouseMove;
   function handleMouseMove(event) {
@@ -96,7 +105,11 @@ function initBrushColorize(){
   function brushAction(){
     //console.log("BrushclickScreen " + x + " " + y + " " + (Math.round(Math.random()*50)+20));
     brushCtx.beginPath();
-    brushCtx.arc(x, y, (Math.round(Math.random()*50)+20), 0, 2 * Math.PI);
+    if(randomBrushSize){
+      brushCtx.arc(x, y, (Math.round(Math.random()*50)+20), 0, 2 * Math.PI);
+    } else {
+      brushCtx.arc(x, y, sliderBrush.value, 0, 2 * Math.PI);
+    }
     brushCtx.fillStyle = color[Math.round(Math.random()*3)+1];
     brushCtx.fill();
     //brushCtx.stroke(); 
