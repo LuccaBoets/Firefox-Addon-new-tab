@@ -1,0 +1,54 @@
+@font-face {
+    font-family: BebasNeue;
+    src: url(../fonts/BebasNeue-Regular.woff);
+  }
+
+  
+  body {
+    margin: 0px;
+     /* background-image: url('c:\\Users\\boets\\Downloads\\goldSkull.jpg');  */
+    background-image: url(''); 
+    height: 100%; 
+    width: 100%;
+    /* font-family: 'Roboto', sans-serif; */
+    color: #996633 !important;
+    font-family: BebasNeue;
+
+  }
+  .customMenu {
+    width: 600px;
+    font-size: 24px;
+  }
+
+  .customMenu button, .customMenu p {
+    float: right;
+  }
+  
+  .hover {
+    color: #996633 !important;
+    text-decoration: none;
+    transition: color .4s ease-out;
+    position: relative;
+  }
+
+  .hover:hover {
+    color: #996633;
+    text-decoration: none;
+  }
+  
+  .hover:hover::after {
+    border-color: #996633;
+    right: 0;
+  }
+
+  .hover::after {
+    border-radius: 1em;
+    border-top: .1em solid #996633;
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: .14em;
+    left: 0;
+    transition: right .4s cubic-bezier(0,.5,0,1),
+    border-color .4s ease-out;
+  }

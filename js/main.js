@@ -34,8 +34,8 @@ class Theme {
     }
 }
 
-let listOfThemes = [new Theme("goldenSkull","Golden Skull",initGoldenSkull, "fa-skull"),new Theme("brushColorize", "Brush Colorize", initBrushColorize, "fa-brush")];
-var currentTheme = "brushColorize";
+let listOfThemes = [new Theme("goldenSkull","Golden Skull",initGoldenSkull, "fa-skull"),new Theme("space", "Space", initSpace, "fa-rocket"),new Theme("brushColorize", "Brush Colorize", initBrushColorize, "fa-brush")];
+var currentTheme = "goldenSkull";
 var navBar = document.getElementById('customNav');
 
 console.log(typeof chrome + " " + !(typeof chrome === 'undefined'));
